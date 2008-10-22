@@ -1,0 +1,24 @@
+<% features_menu %>
+
+<h2>Create a new estimate</h2>
+
+<% form_for @feature do |f| %>
+	<%= f.error_messages %>
+	<fieldset class="page-fieldset">
+		<legend class="page-legend">Estimate Information</legend>
+		<p class="explanation">&nbsp; Describe the task or feature you're estimating.</p>
+		<dl>
+			<dt>Name</dt>
+			<dd><%= f.text_field :name, :class => 'big' %></dd>
+			<dt>Description</dt>
+			<dd><%= f.text_area :description, :rows => 4 %></dd>
+			<dt>Project</dt>
+			<dd><%= f.select :project_id, projects_select_options %></dd>
+			<dt>Initial Estimate</dt>
+			<dd><%= f.text_field :estimated_hours %></dd>
+		</dl>
+	</fieldset>
+	<div class="buttons">
+		<%= submit_tag 'Create estimate' %> or <%= link_to 'nevermind', features_path %>!
+	</div>
+<% end %>

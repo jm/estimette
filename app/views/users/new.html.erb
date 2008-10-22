@@ -1,0 +1,33 @@
+<% @user.password = @user.password_confirmation = nil %>
+<%= title "Create your account", :h1 %>
+<% form_for @user do |f| %>
+	<%= f.error_messages %>
+	<fieldset class="page-fieldset">
+		<legend class="page-legend">Your Details</legend>
+		<p class="explanation">&nbsp; This information will be your login information.</p>
+		<dl>
+			<dt>Username</dt>
+			<dd><%= f.text_field :login %></dd>
+			<dt>E-mail</dt>
+			<dd><%= f.text_field :email %></dd>
+			<dt>
+			  Password
+			  <span class="explanation">Must be at least 6 characters.</span>
+			</dt>
+			<dd><%= f.password_field :password %></dd>
+			<dt>Confirm Password</dt>
+			<dd><%= f.password_field :password_confirmation %></dd>
+		</dl>
+	</fieldset>
+	<fieldset class="page-fieldset">
+		<legend class="page-legend">Signup with OpenID</legend>
+		<p class="explanation">&nbsp; If you prefer, you can skip the above details and use your OpenID.</p>
+		<dl>
+		  <dt>OpenID URL</dt>
+			<dd><%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %></dd>
+		</dl>
+	</fieldset>
+	<div class="buttons">
+		<%= submit_tag 'Sign up' %> or <%= link_to 'nevermind', root_path %>!
+	</div>
+<% end %>

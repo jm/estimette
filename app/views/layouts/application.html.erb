@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>estimette <%= @page_title ? " - #{@page_title}" : "" %></title>
+
+		<%= stylesheet_link_tag 'base' %>
+		<%= javascript_include_tag :all %>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+			  <h1>estimette<span class="fade">alpha</span></h1>
+        <%= render :partial => 'shared/authentication' %>
+			  
+			  <ul id="tabs">
+			    <li class="hide">&nbsp;</li>
+			    <li <%= @selected == :dashboard ? 'class="active"' : '' %>><%= link_to "Dashboard", dashboard_path %></li>
+			    <li <%= @selected == :estimates ? 'class="active"' : '' %>><%= link_to "Estimates", features_path %></li>
+			    <li <%= @selected == :projects ? 'class="active"' : '' %>><%= link_to "Projects", projects_path %></li>
+			    <li <%= @selected == :account ? 'class="active"' : '' %>><%= link_to "Account", account_path %></li>
+			  </ul>
+			</div>
+			<div id="content">
+			  <%= yield :menu %>
+
+        <div id='sidebar' class='sidebar'>
+          <%= user_display %>
+          <%= yield :sidebar %>
+        </div>
+                
+        <% if flash[:notice] %>
+        <div id="flash" class="flash-messages" onclick="Effect.Fade('flash');">
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
+        <div id="left">				
+				  <%= yield %>
+			  </div>
+			</div>
+			<div id="footer">
+			  hey
+			  <p class="copy">
+			    estimette is a product of entp's worldwide research program for the betterment of the lives of people who can't estimate and stuff.
+		    </p>
+			</div>
+		</div>
+	</body>
+</html>

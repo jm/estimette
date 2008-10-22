@@ -1,0 +1,19 @@
+<% projects_menu %>
+<h2>Create a new project</h2>
+
+<% form_for @project do |f| %>
+	<%= f.error_messages %>
+	<fieldset class="page-fieldset">
+		<legend class="page-legend">Project Information</legend>
+		<p class="explanation">&nbsp; Describe the project.</p>
+		<dl>
+			<dt>Name</dt>
+			<dd><%= f.text_field :name, :class => 'big' %></dd>
+			<dt>Description</dt>
+			<dd><%= f.text_area :description %></dd>
+		</dl>
+	</fieldset>
+	<div class="buttons">
+		<%= submit_tag 'Create project' %> or <%= link_to 'nevermind', projects_path %>!
+	</div>
+<% end %>

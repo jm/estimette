@@ -1,0 +1,20 @@
+<% features_menu %>
+
+<%= title (@title || "Estimates"), :h2 %>
+
+<% if @features.length == 0 %>
+  <% @blank ||= "No estimates yet. #{link_to 'Click here', new_feature_path} to create one." %>
+
+  <%= empty_message @blank %>
+<% else %>
+  <% @features.each do |feature| %>
+    <div class="project-listing">
+      <%= render :partial => 'shared/pill', :locals => {:left => feature.estimated_hours, :right => feature.completed_hours}%>
+      <h3>
+        <%= link_to feature.name, feature_path(feature) %><%- if feature.project %><span class="explanation">in <%= link_to feature.project.name, project_path(feature.project) %></span>
+        <% end %>
+      </h3>
+      <p class="feature-description" style="font-size: 10pt;"><%= feature.description %></p>
+    </div>
+  <% end %>
+<% end %>

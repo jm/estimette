@@ -1,0 +1,24 @@
+<% features_menu %>
+
+<%= render :partial => 'pill', :locals => { :left => @feature.estimated_hours, :right => (@feature.completed_hours || "n/a")} %>
+
+<h2><%= @feature.name %></h2>
+<p class="feature-description"><%= @feature.description %></p>
+
+<h3>Notes on this estimate</h3>
+<% if @feature.notes.size == 0 %>
+  <%= empty_message "No notes on this estimate yet" %>
+<% else %>
+  <% @feature.notes.each do |note| %>
+    <%= note.body %>
+    <div style="text-align: right; font-size: 8pt; color: #aaa">left at <%= note.created_at.strftime("%D %T")%></div>
+    <hr noshade />
+  <% end %>
+<% end %>
+
+<h3>Leave a note</h3>
+<% form_for :note, :url => notes_path, :method => :post do |f| %>
+  <%= f.text_area :body, :rows => 6 %>
+  <%= f.hidden_field :feature_id, :value => @feature.id %>
+  <div class="buttons"><%= submit_tag "Leave it!" %></div>
+<% end %>

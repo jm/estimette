@@ -1,0 +1,352 @@
+BODY {
+  background: #484848;
+  color: #ddd;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  padding: 0px;
+  margin: 0px;
+}
+
+BODY.auth {
+  background: #538794;
+}
+
+BODY.auth .buttons { 
+  background: #73A7B4;
+}
+
+#container {
+  margin: 0px;
+  padding: 0px;
+}
+
+#header {
+  margin: 0px;
+  background: #538794;
+  padding: 15px 15px 0px 15px;
+}
+
+#header h1 {
+  color: #fff;
+  margin: 5px 0px 20px;
+  text-shadow: #336774 0px 1px 1px;
+}
+
+#header h1 span.fade {
+  color: #a3d7e4;
+}
+
+#header #auth {
+  float: right;
+  margin-right: 15px;
+}
+
+#header #auth li {
+  display: inline;
+  font-size: 8pt;
+}
+
+#header #auth li a {
+  color: #c3e7f4;
+  text-decoration: none;
+  border-bottom: 1px dotted #c3e7f4;
+}
+
+#header #auth li a:hover {
+  color: white;
+  border-bottom: 1px solid #fff;
+}
+
+#header #tabs {
+  margin: 10px 0px 0px 0px;
+  padding: 8px 0px 10px 0px;
+  border: 0px;
+  border-bottom: 6px solid #181000;
+}
+
+#header #tabs li {
+  background: #483000;
+  display: inline;
+  color: #685020;
+  margin: 0px;
+  font-size: 9pt;
+  padding: 10px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+#header #tabs li a {
+  color: #685020;
+  text-decoration: none;
+}
+
+#header #tabs li.active {
+  background: #181000;
+  color: white;
+}
+
+#header #tabs li.active a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#header #tabs li.hide {
+  background: #538794;
+  padding:3px;
+  margin: 0px;
+}
+
+#content {
+  margin: 0px;
+  background: #eee;
+  color: #222;
+  padding: 0px 15px 10px 15px;
+}
+
+fieldset {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 20px 0px;
+}
+
+legend {
+  background: #181000;
+  font-size: 8pt;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+  float: left;
+}
+
+.explanation {
+  font-size: 8pt;
+  color: #999;
+  padding-left: 5px;
+  font-weight: normal;
+}
+
+#left {
+  padding: 20px 290px 0px 0px;
+}
+
+#sidebar {
+  width: 260px;
+}
+
+#content .page-menu {
+  margin: 0px;
+  background: #181000;
+  color: #383030;
+  font-weight: normal;
+}
+
+#content .page-menu p {
+  margin: 0px 0px 0px 12px;
+  padding: 0px;
+  padding-top: 5px;
+  font-weight: normal;
+}
+
+#content .page-fieldset {
+  
+}
+
+#user-display {
+  margin: 18px 0px;
+}
+
+#user-display img {
+  float: left;
+  margin: 0px 8px 0px 0px;
+}
+
+#user-display .name {
+  font-size: 14pt;
+}
+
+#user-display .info {
+  font-size: 7pt;
+  color: #999;
+}
+
+dt { 
+  color: black;
+  font-size: 8pt;
+  padding: 0px 10px;
+  font-weight: bold;
+}
+
+dd {
+  margin: 0px 0px 8px 15px;
+}
+
+#footer {
+  margin: 0px;
+  background: #181000;
+  color: white;
+  font-weight: normal;
+  padding: 15px 15px 3px 15px;
+}
+
+#footer .copy {
+  text-align: center;
+  font-size: 8pt;
+  color: #383020;
+}
+
+fieldset input, fieldset textarea {
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+
+.buttons {
+  background: #ddd;
+  padding: 3px;
+  color: #777;
+}
+
+.buttons a {
+  color: black;
+  text-decoration: none;
+}
+
+body.front {
+  background: #538794;
+}
+
+body.front #content {
+  background: #538794;
+}
+
+a.nav-link {
+  color: white; 
+  text-decoration: none;
+  font-size: 9pt;
+  margin-right: 5px;
+}
+
+#content h2, h3 {
+  font-weight: normal;
+  color: #444;
+}
+
+#content h2 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+INPUT.big {
+  font-size: 14pt;
+}
+
+.pill-left {
+  float: left; 
+  border-right: 3px solid #666; 
+  width: 48%; 
+  font-size: 20pt; 
+  text-align: center;
+}
+
+.pill-right {
+  float: right; 
+  font-size: 20pt; 
+  width: 48%; 
+  text-align: center;
+}
+
+.pill-headers {
+  font-size: 7pt; 
+  margin: 0px;
+}
+
+.flash-messages {
+  cursor: pointer; 
+  background: #ffffaa; 
+  border: 1px solid #ccccaa; 
+  padding: 10px; 
+  width: 500px;
+  margin: 20px 0px 0px -15px;
+  text-align: right;
+  font-weight: bold;
+}
+
+#sidebar {
+  float: right; 
+  border: 0px; 
+  border-left: 1px dotted black; 
+  padding: 10px;"
+}
+
+p.feature-description {
+  margin: -10px 0px 0px 0px;
+  font-style: italic;
+  color: #666;
+}
+
+.project-listing {
+  border-bottom: 1px solid #ccc; 
+  min-height: 70px;
+}
+
+.project-listing h3 a {
+  color: black;
+  text-decoration: none;
+}
+
+.empty {
+  text-align: center;
+  padding: 15px;
+  font-size: 14pt;
+  color: #999;
+}
+
+.empty a {
+  color: #666;
+  text-decoration: none;
+  border-bottom: 1px dotted #999;
+}
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {
+	border: 1px solid #ffcccc;
+	margin: 0px 80px;
+	padding: 10px;
+	background: #ffdede;
+}
+
+div#errorExplanation h2 {
+  text-align: center;
+	text-shadow: 1px 1px 1px #ff9999;
+	color: #711;
+	padding: 5px;
+	border-bottom: 1px dotted #ffaaaa;
+}
+
+div#errorExplanation p {
+	font-size: 9pt;
+	margin: -10px 0px 0px 0px;
+}
+
+div#errorExplanation ul {
+	
+}
+
+div#errorExplanation ul li {
+	font-size: 9pt;
+}
+
+/* === FORMS === */
+div.fieldWithErrors {
+	
+}
+
+div.fieldWithErrors label {
+	
+}
+
+div.fieldWithErrors input, div.fieldWithErrors select, 
+div.fieldWithErrors textarea
+{
+	
+}

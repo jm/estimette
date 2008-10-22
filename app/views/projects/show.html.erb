@@ -1,0 +1,49 @@
+<% projects_menu %>
+
+<h2>
+  <%= @project.name %>&nbsp;<span class="explanation">33 estimates, 14 completed, 3 within estimate</span>
+</h2>
+<p class="feature-description"><%= @project.description %></p>
+
+
+<div id="bars1" style="width: 550px; margin: auto;"></div>
+
+<%
+estimates = []
+actual = []
+
+max = @project.features.last.id
+x = 1
+@project.features.each do |feature|
+  estimates << "[#{x}, #{feature.estimated_hours}]"
+  actual << "[#{x}, #{feature.completed_hours}]"
+  x += 1 
+end 
+
+estimates = estimates.join(",")
+actual = actual.join(",")
+%>
+
+<script>
+new Proto.Chart($('bars1'), 
+	[
+		{data: [<%= estimates %>], label: "Estimated"},
+		{data: [<%= actual %>], label: "Actual"}
+	],
+	{
+		bars: {show: true},
+		xaxis: {min: 0, max: <%= max + 1 %>, tickSize: 1},
+		grid: {drawXAxis: false},
+		legend: {show: true},
+		colors: ["#ff6", "#6ff"]
+	});
+</script>
+
+<h3>Estimates for this project</h2>
+<% @project.features.each do |feature| %>
+  <div class="project-listing">
+    <%= render :partial => 'shared/pill', :locals => {:left => feature.estimated_hours, :right => feature.completed_hours}%>
+    <h3><%= link_to feature.name, feature_path(feature) %></h3>
+    <p class="feature-description" style="font-size: 10pt;"><%= feature.description %></p>
+  </div>
+<% end %>

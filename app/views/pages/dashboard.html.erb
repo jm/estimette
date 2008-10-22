@@ -1,0 +1,77 @@
+<% 
+  dashboard_menu
+%>
+
+<% title "Dashboard" %>
+
+<% content_for :sidebar do %>
+<% if current_user.projects.size > 0 %>
+  <div id="piechart" style="width: 280px; margin: auto;"></div>
+  <script>
+
+  new Proto.Chart($('piechart'), 
+  	[
+  	{ data: [[1,<%= @accurate.size %>]], label: "On estimate"},
+  	{ data: [[2,<%= @inaccurate.size %>]], label: "Inaccurate"},
+  	{ data: [[3,<%= @incomplete.size %>]], label: "Incomplete"}
+  	], 
+  	{
+  		pies: {show: true, autoScale: true},
+  		legend: {show: true},
+  		colors: ["#afa", "#faa", "#ffa"]
+  	});
+  </script>
+  <% end %>
+<% end %>
+
+
+<% if @projects.length == 0 %>
+  <%= empty_message "No projects yet. #{link_to 'Click here', new_project_path} to create one." %>
+<% else %>
+<div id="bars1" style="width: 550px; margin: auto;"></div>
+
+<%
+estimates = []
+actual = []
+
+max = @projects.last.id
+x = 1
+
+@projects.each do |proj|
+  estimates << "[#{x}, #{proj.estimated_hours}]"
+  actual << "[#{x}, #{proj.completed_hours}]"
+  x += 1
+end 
+
+estimates = estimates.join(",")
+actual = actual.join(",")
+%>
+
+<script>
+new Proto.Chart($('bars1'), 
+	[
+		{data: [<%= estimates %>], label: "Estimated"},
+		{data: [<%= actual %>], label: "Actual"}
+	],
+	{
+		bars: {show: true},
+		xaxis: {min: 0, max: <%= max + 1 %>, tickSize: 1},
+		grid: {drawXAxis: false},
+		legend: {show: true},
+		colors: ["#ff6", "#6ff"]
+	});
+</script>
+
+<div class="buttons" style="text-align: center; padding: 10px;">
+  <%= @accurate.size %> accurate, <%= @inaccurate.size %> inaccurate, <%= @incomplete.size %> incomplete | <strong>Overall accuracy: <%= current_user.accuracy %>%</strong>
+</div>
+
+  <% @projects.each do |project| %>
+    <div class="project-listing">
+      <%= render :partial => 'shared/pill', :locals => {:left => project.estimated_hours, :right => project.completed_hours}%>
+      <h3><%= link_to project.name, project_path(project) %></h3>
+      <p class="feature-description"><%= project.description %></p>
+    </div>
+  <% end %>
+<% end %>
+<br />

@@ -1,0 +1,16 @@
+<% projects_menu %>
+
+<%= title "Projects", :h2 %>
+
+<% if @projects.length == 0 %>
+  <%= empty_message "No projects yet. #{link_to 'Click here', new_project_path} to create one." %>
+<% else %>
+  <% @projects.each do |project| %>
+    <div class="project-listing">
+      <%= render :partial => 'shared/pill', :locals => {:left => project.estimated_hours, :right => project.completed_hours}%>
+      <h3><%= link_to project.name, project_path(project) %></h3>
+      <p class="feature-description"><%= project.description %></p>
+    </div>
+  <% end %>
+<% end %>
+<br />

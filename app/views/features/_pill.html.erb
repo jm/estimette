@@ -1,0 +1,12 @@
+<div class="indicator" style="float: right; background: #ccc; width: 150px; margin-top: 10px;">
+  <div class="pill-left">
+    <p class="pill-headers">estimated</p>
+    <span id="estimated_hours"><%= left %></span>
+    <%= in_place_editor "estimated_hours", {:url => feature_url(@feature, :format => 'js'), :options => "{method: 'put', okControl: false}", :method => :post, :cols => 3, :cancel_text => '', :ok_control => false, :saving_text => '...'} %>
+  </div>
+  <div class="pill-right">
+    <p class="pill-headers">actual</p>
+    <span id="completed_hours"><%= right %></span>
+    <%= in_place_editor "completed_hours", {:url => feature_url(@feature, :format => 'js'), :options => "{method: 'put', okControl: false}", :method => :post, :cols => 3, :cancel_text => '', :ok_control => false, :saving_text => '...'} %>
+    </div>
+</div>
